@@ -1,0 +1,32 @@
+<%= form_with(model: zombie) do |form| %>
+  <% if zombie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zombie.errors.count, "error") %> prohibited this zombie from being saved:</h2>
+
+      <ul>
+        <% zombie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :weapon %>
+    <%= form.text_field :weapon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kills %>
+    <%= form.number_field :kills %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brain %>
+    <%= form.check_box :brain %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
